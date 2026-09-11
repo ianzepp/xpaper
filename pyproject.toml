@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xpaper"
+version = "0.1.0"
+description = "Morning newspaper PDF from an edition directory — ReportLab frames + agent skill"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+authors = [{ name = "Ian Zepp" }]
+keywords = ["newspaper", "pdf", "reportlab", "x", "twitter", "agent"]
+dependencies = [
+  "reportlab>=4.0",
+  "pillow>=10.0",
+  "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+xpaper = "xpaper.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/ianzepp/xpaper"
+Repository = "https://github.com/ianzepp/xpaper"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+xpaper = ["fonts/*.ttf"]

@@ -1,0 +1,217 @@
+# Sample edition for xpaper — fictional wire copy for layout demos.
+# Replace with your own scraped/rewritten stories. Paths are relative to this directory.
+
+masthead:
+  title: THE X PAPER
+  eyebrow: Sample Dispatch  ·  From the Wire
+  subtitle: Morning Edition — Sample
+  date_long: Friday, September 11, 2026
+  vol: Vol. I, No. Sample
+  price: "Price: Free"
+  window: Prior eight hours
+  handle: "@example"
+  tagline: All the tweets fit to set in type.
+  folio_name: THE X PAPER
+  inside_section: National Affairs / Briefs & Diversions
+  author: xpaper-sample
+
+index:
+  - { page: "A1", hed: "Machine-built toy city in an hour" }
+  - { page: "A1", hed: "Connectome ethics on the rail" }
+  - { page: "A1", hed: "Archive quote box" }
+  - { page: "2", hed: "Morning-show clip reaction" }
+  - { page: "2", hed: "Briefs & colophon" }
+
+pages:
+  front:
+    lead:
+      kicker: Technology / Artificial Intelligence
+      hed: In one hour, a playable city—built by machine
+      deck: >
+        A demo account turns generated monsters, buses and buildings into a
+        Three.js romp; the human chose builds, calmed the camera, and pressed record.
+      byline: From the wire — Sample Correspondent (@sampledesk)
+      image: images/lead.jpg
+      caption: "Above — Toy protagonist in a generated cityscape; still from circulating gameplay video."
+      image2: images/lead2.jpg
+      caption2: "Also circulating — A second still from the same build session."
+      pull: That bus in the model viewer becomes something you can pick up and throw across the city.
+      pull_attr: "— Sample Correspondent, on the asset-to-engine pipeline"
+      body:
+        - >
+          An account posted what it described as a finished, playable
+          three-dimensional game assembled in a single hour: the player is a
+          toy monster, hurls buses at buildings, and faces a giant boss. The
+          demonstration cuts between model viewers and the same assets running
+          inside the game.
+        - >
+          According to the poster, one tool generated the assets—monsters,
+          buildings, vehicles—while another imported them into Three.js and
+          wrote the gameplay. A bus that begins as a static model becomes
+          something a player can throw across a digital city.
+        - >
+          The human role was editorial: selecting versions, playing builds,
+          and asking for changes. One request was to calm the camera so the
+          player could still see what was being hit. Short gameplay clips followed.
+      jump: "National / briefs → Page 2"
+      hero_max_h: 190
+      runaround_max_h: 118
+      runaround_frac: 0.48
+
+    fly:
+      kicker: Science / Ethics
+      hed: The fly, the wire, and a queasy joke
+      byline: From the wire — Sample Science Desk
+      image: images/rail.jpg
+      caption: "Connectome play — Imagery accompanying posts on simulated reward."
+      photo_max_h: 92
+      body:
+        - >
+          A thread of fruit-fly connectome posts—part lab curiosity, part dark
+          comedy—drew a sober note: many manipulations are jokes, but the casual
+          tone sits uneasily beside a creature that may be experiencing something.
+        - >
+          One quoted post described “wireheading” a fly toward endless scroll
+          content, aiming at a fly happier than all others combined—presented here
+          as the poster’s characterization, not a finding.
+
+    sidebar:
+      kicker: Sidebar
+      hed: Cubes, insects, and a gag model
+      image: images/sidebar.jpg
+      caption: "Cube — Still that seeded a circulating joke."
+      photo_max_h: 44
+      body:
+        - >
+          A short gag claimed a frontier model was trained on a cluster of fly
+          brains, riffing on a Rubik’s-cube insect still. Another account posted
+          a clip labeled as a fruit-fly brain acting as a language model.
+
+    quote_box:
+      kicker: History Brief
+      hed: Authorization from the archive
+      image: images/quote.jpg
+      caption: "Archive card — Imagery with a recirculated historical quote."
+      photo_max_h: 48
+      quote: >
+        From the airborne command post, the president authorizes extraordinary
+        measures; it was not then known how many aircraft were involved or whether
+        a second wave was coming.
+      cite: "Quoted via sample archive accounts — attributed, not verified here"
+
+  inside:
+    feature:
+      kicker: National
+      hed: A morning-show pause becomes the day's loudest clip
+      deck: >
+        Posts amplify a broadcast moment about a high-profile trial. This paper
+        reports the circulation, not the courtroom.
+      byline: Attributed to multiple named posters on the platform
+      image: images/feature.jpg
+      caption: >
+        On screen — Still from a circulating morning-show clip. Legal claims are
+        attributed to posters, not independently verified here.
+      photo_max_h: 108
+      pull: Woah. I have to sit with that for just a second.
+      pull_attr: "— As quoted by a sample media account from the broadcast"
+      body:
+        - >
+          Few posts in this sample matched the attention of a circulating
+          morning-show clip. Named accounts quoted or reposted versions; notes put
+          individual view counts roughly between 100,000 and more than 200,000.
+        - >
+          As summarized by those posters, the broadcast discussed a lone holdout
+          juror. Characterizations of pressure and counsel strategy originate with
+          the named posters and the circulating clip.
+        - >
+          Partisan framing moved quickly. This newspaper records who said what,
+          and how widely it traveled, without endorsing the legal inferences drawn
+          in the heat of the clip.
+        - >
+          Readers seeking the trial record are directed to court documents and
+          responsible news reporting beyond this social-media sample.
+        - >
+          Separately, anniversary and science posts shared the same window; they
+          appear in the briefs below rather than crowding the national lead.
+
+    rail:
+      kicker: Microfiction
+      hed: Fable — Knots and patience
+      byline: From the wire — Sample Fiction Desk
+      image: images/micro.jpg
+      caption: "Illustration — Posted with a short parable."
+      photo_max_h: 120
+      body:
+        - >
+          Under a fable heading, a brief parable: you were dust, and you flew
+          straight, and you did not choose where you stopped—you stopped where
+          you met. That is all a knot is: the place where straight lines ran out
+          of room. The web thinks it was designed. It was only patient.
+      note: >
+        No further exegesis accompanied the post. In a newspaper of machines and
+        trials, the lines read as a small insistence that pattern need not imply
+        intention.
+
+    briefs:
+      - kicker: Also on the wire
+        hed: Agents that stay on your plate
+        byline: Sample Tech Brief
+        body:
+          - >
+            Why a day with AI agents exhausts: true delegation lets a task leave
+            the mind; AI often does not. One must check correctness and completeness.
+            Net effect: added mental load—a counterpoint to the hour-long demo on A1.
+        after:
+          kicker: Editor's Box
+          body: >
+            This sample redraws a fictional eight-hour slice for layout demos.
+            Copy is invented newspaper prose. Images are placeholder grayscale.
+            Claims in a real edition should remain attributed to named sources.
+
+      - kicker: Technology Brief
+        hed: After death, a better plan
+        byline: From the wire — Sample Games Desk
+        image: images/brief-a.jpg
+        caption: "Nether ledger — Still with a recovery-loop post."
+        photo_max_h: 72
+        body:
+          - >
+            An agent log after repeated game deaths: preserve gear, visit a village,
+            acquire a bow, fix pathfinding, then clear threats from higher ground.
+            A quoted remark called the behavior proto-AGI-like—the poster’s
+            characterization, not a finding.
+
+      - kicker: Street Sighting
+        hed: Tall and calm on the sidewalk
+        byline: From the wire — Sample Society Desk
+        image: images/brief-b.jpg
+        caption: "Sidewalk — Candid after a chance encounter."
+        photo_max_h: 100
+        body:
+          - >
+            A neighborhood account reported casually walking past a well-known
+            figure outside a bar the author did not praise. The subject was taller
+            than expected, thoroughly calm, and surrounded by a crowd. The candid
+            photograph does what society pages once did: prove a name on a screen
+            still occupies sidewalk space.
+
+      - kicker: Also Noted
+        hed: Limits, locusts, Friday
+        body:
+          - >
+            One poster lamented a weekly usage limit postponing a locust simulation.
+            Another marked Friday with a tradition video. A third answered demand
+            for more insect content with a one-word brand joke.
+        colophon:
+          kicker: Colophon
+          lines:
+            - THE X PAPER
+            - Morning Edition — Sample
+            - Friday, September 11, 2026
+            - Sample Dispatch
+            - Source window: prior eight hours
+            - "Feed: @example"
+            - Set in Libre Baskerville & Oswald
+            - Layout: ReportLab frames (Triplicate-inspired)
+            - Printed in black ink on imaginary newsprint
+            - "All the tweets fit to set in type."
