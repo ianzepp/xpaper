@@ -1,4 +1,4 @@
-"""Assemble a 2-page Letter B&W newspaper PDF from a loaded edition."""
+"""Assemble newspaper PDFs from a loaded edition (Letter or Tabloid themes)."""
 
 from __future__ import annotations
 
@@ -18,14 +18,36 @@ from . import layout as L
 from .schema import load_edition
 from .styles import make_styles, register_fonts
 
+THEMES = ("tabloid-typewriter", "letter")
+DEFAULT_THEME = "tabloid-typewriter"
 
-def render_edition(edition_dir: Path | str, output: Path | str) -> Path:
+
+def render_edition(
+    edition_dir: Path | str,
+    output: Path | str,
+    *,
+    theme: str = DEFAULT_THEME,
+) -> Path:
     """Render *edition_dir*/edition.yaml to *output* PDF. Returns output path."""
     edition_dir = Path(edition_dir)
     output = Path(output)
     output.parent.mkdir(parents=True, exist_ok=True)
 
+    theme = (theme or DEFAULT_THEME).strip().lower()
+    if theme not in THEMES:
+        raise ValueError(f"Unknown theme {theme!r}; choose from {THEMES}")
+
     data = load_edition(edition_dir)
+    if theme == "tabloid-typewriter":
+        from .tabloid import render_tabloid
+
+        return render_tabloid(data, output)
+
+    return _render_letter(data, output)
+
+
+def _render_letter(data: dict, output: Path) -> Path:
+    """Legacy Triplicate-inspired Letter B&W layout."""
     register_fonts()
     styles = make_styles()
     cache_dir = data["cache_dir"]
@@ -54,7 +76,6 @@ def render_edition(edition_dir: Path | str, output: Path | str) -> Path:
     front = data["front"]
     inside = data["inside"]
     briefs = list(inside["briefs"] or [])
-    # Pad to 4 brief slots
     while len(briefs) < 4:
         briefs.append(
             {

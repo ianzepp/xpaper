@@ -5,8 +5,9 @@ from __future__ import annotations
 import argparse
 import shutil
 import sys
-from importlib import resources
 from pathlib import Path
+
+from .render import DEFAULT_THEME, THEMES
 
 
 def _cmd_render(args: argparse.Namespace) -> int:
@@ -17,17 +18,21 @@ def _cmd_render(args: argparse.Namespace) -> int:
         print(f"error: no edition.yaml in {edition_dir}", file=sys.stderr)
         return 1
     out = Path(args.output).resolve() if args.output else edition_dir / "out.pdf"
-    path = render_edition(edition_dir, out)
-    print(f"Wrote {path} ({path.stat().st_size} bytes)")
+    theme = args.theme or DEFAULT_THEME
+    try:
+        path = render_edition(edition_dir, out, theme=theme)
+    except ValueError as e:
+        print(f"error: {e}", file=sys.stderr)
+        return 1
+    print(f"Wrote {path} ({path.stat().st_size} bytes)  [theme={theme}]")
     return 0
 
 
 def _example_source() -> Path | None:
     """Locate packaged or repo-relative examples/sample-edition."""
-    # Repo checkout: .../xpaper/examples/sample-edition relative to package
     here = Path(__file__).resolve()
     candidates = [
-        here.parents[2] / "examples" / "sample-edition",  # src/xpaper -> repo root
+        here.parents[2] / "examples" / "sample-edition",
         here.parents[3] / "examples" / "sample-edition",
         Path.cwd() / "examples" / "sample-edition",
     ]
@@ -51,7 +56,6 @@ def _cmd_init_example(args: argparse.Namespace) -> int:
         print(f"error: {dest} is not empty (pass --force to overwrite)", file=sys.stderr)
         return 1
     dest.mkdir(parents=True, exist_ok=True)
-    # Copy yaml + images
     shutil.copy2(src / "edition.yaml", dest / "edition.yaml")
     img_src = src / "images"
     img_dest = dest / "images"
@@ -61,20 +65,33 @@ def _cmd_init_example(args: argparse.Namespace) -> int:
         shutil.copytree(img_src, img_dest)
     print(f"Initialized example edition at {dest}")
     print(f"Render with: xpaper render {dest} -o out.pdf")
+    print(f"  (default theme: {DEFAULT_THEME}; pass --theme letter for Letter B&W)")
     return 0
 
 
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
         prog="xpaper",
-        description="Render a Letter B&W newspaper PDF from an edition directory.",
+        description=(
+            "Render a newspaper PDF from an edition directory. "
+            f"Default theme: {DEFAULT_THEME} (US Tabloid 11×17, Special Elite)."
+        ),
     )
-    p.add_argument("--version", action="version", version="%(prog)s 0.1.0")
+    p.add_argument("--version", action="version", version="%(prog)s 0.2.0")
     sub = p.add_subparsers(dest="command", required=True)
 
     pr = sub.add_parser("render", help="Render edition.yaml → PDF")
     pr.add_argument("edition_dir", help="Directory containing edition.yaml (+ images/)")
     pr.add_argument("-o", "--output", help="Output PDF path (default: <edition-dir>/out.pdf)")
+    pr.add_argument(
+        "--theme",
+        choices=list(THEMES),
+        default=DEFAULT_THEME,
+        help=(
+            f"Layout theme (default: {DEFAULT_THEME}). "
+            "tabloid-typewriter = locked house style; letter = legacy Triplicate Letter B&W."
+        ),
+    )
     pr.set_defaults(func=_cmd_render)
 
     pi = sub.add_parser("init-example", help="Copy the sample edition into a directory")

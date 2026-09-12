@@ -1,3 +1,4 @@
-"""xpaper — ReportLab frame-based newspaper PDF from an edition directory."""
+"""xpaper — ReportLab newspaper PDF from an edition directory (tabloid house style)."""
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
+

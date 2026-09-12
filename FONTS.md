@@ -1,16 +1,18 @@
-# Bundled fonts
+# Bundled fonts & assets
 
-Static TTFs under `src/xpaper/fonts/` are used for newspaper typography:
+Static files under `src/xpaper/fonts/` and `src/xpaper/assets/`:
 
-| Family | Files | License |
-|--------|-------|---------|
-| Playfair Display SC | Black, Bold (+ extras) | SIL Open Font License 1.1 |
-| Oswald | Bold, SemiBold | SIL Open Font License 1.1 |
-| Libre Baskerville | Regular, Bold, Italic | SIL Open Font License 1.1 |
-| Archivo Narrow | Regular, Bold | SIL Open Font License 1.1 |
+| Family / asset | Files | License | Used by |
+|----------------|-------|---------|---------|
+| **Special Elite** | Regular | Apache License 2.0 (Astigmatic) | **Default** tabloid-typewriter theme (all text) |
+| Playfair Display SC | Black, Bold (+ extras) | SIL OFL 1.1 | Legacy `--theme letter` masthead |
+| Oswald | Bold, SemiBold | SIL OFL 1.1 | Legacy letter heds/kickers |
+| Libre Baskerville | Regular, Bold, Italic | SIL OFL 1.1 | Legacy letter body |
+| Archivo Narrow | Regular, Bold | SIL OFL 1.1 | Legacy letter folios |
+| Paper grain | `assets/paper-grain-tabloid.jpg` | Generated procedural texture (xpaper) | Tabloid cream stock |
 
-These fonts are © their respective authors (Claus Eggers Sørensen / Google;
-Vernon Adams / Google; Pablo Impallari / Google; Omnibus-Type / Google) and
-distributed under the [SIL Open Font License 1.1](https://scripts.sil.org/OFL).
-The MIT license for this repository covers the xpaper code only; font files
-remain under OFL.
+Special Elite © Astigmatic (Brian J. Bonislawsky), distributed via Google Fonts
+under the Apache License 2.0. Other families remain under the
+[SIL Open Font License 1.1](https://scripts.sil.org/OFL). The MIT license for
+this repository covers the xpaper code only; font files remain under their
+own licenses.

@@ -13,14 +13,17 @@
 pip install -e .          # from this checkout
 xpaper init-example ./ed  # optional scaffold
 xpaper render ./ed -o ./ed/out.pdf
+# default theme = tabloid-typewriter (locked house style)
+xpaper render ./ed -o ./ed/out-letter.pdf --theme letter
 ```
 
-## Layout reminders
+## Layout reminders (house style)
 
-- Front: lead ~2/3 + rail (ear index, fly story, sidebar + quote box).
-- Inside: feature ~2/3 + rail + four briefs.
-- Photos: full-column or left runaround (`image2` on the lead).
-- B&W Letter only; convert images to grayscale before referencing them.
+- US Tabloid 11×17; Special Elite; cream + grain.
+- Front: lead ~2/3 with left runaround + rail (fly, sidebar, quote) + bottom briefs.
+- Inside: feature ~2/3 + rail; leftover briefs spill.
+- Copy: `..` not em dashes.
+- Convert images to grayscale before referencing them.
 
 ## Do not
 
